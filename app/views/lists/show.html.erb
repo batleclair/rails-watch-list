@@ -1,0 +1,29 @@
+<!-- Banner -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+    <p>This is your watch list! Feel free to add more movies to it.</p>
+  </div>
+</div>
+
+<!-- Title and Cards -->
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h3>Movies</h3>
+    <button type="button" class="btn btn-flat" data-bs-toggle="modal" data-bs-target="#addMovie">
+        Add a movie
+    </button>
+  </div>
+  <div class="row">
+      <% @list.bookmarks.each do |bookmark| %>
+        <div class = "col-4">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+            <p><%= bookmark.movie.title %></p>
+          </div>
+       </div>
+      <% end %>
+  </div>
+</div>
+
+<!-- Add new movie to list Modal -->
+<%= render "new_bookmark", list: @list %>

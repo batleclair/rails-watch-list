@@ -1,0 +1,29 @@
+<!-- Banner -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/photos-gratuite/elements-cinema-fond-rouge-espace-copie_23-2148457853.jpg?w=1060&t=st=1652965731~exp=1652966331~hmac=20556fdf65c43d1bfa8895cac588dcbd7a5628085eb1ebc7d8efe1bed24e97ff);">
+  <div class="container">
+    <h1>Movie watchlist</h1>
+    <p>Save any kind of movie to your lists.</p>
+  </div>
+</div>
+
+<!-- Title and Cards -->
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h3>My Lists</h3>
+    <button type="button" class="btn btn-flat" data-bs-toggle="modal" data-bs-target="#addList">
+      Create List
+    </button>
+  </div>
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class = "col-4">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= link_to list.name, list_path(list) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- Create new list Modal -->
+<%= render "new", list: @list %>
