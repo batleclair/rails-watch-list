@@ -14,11 +14,18 @@
         Add a movie
     </button>
   </div>
-  <div class="row">
+  <div class="row p-2">
       <% @list.bookmarks.each do |bookmark| %>
-        <div class = "col-4">
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-            <p><%= bookmark.movie.title %></p>
+        <div class = "col-4 shadow p-0 bg-white rounded">
+          <div class="card-category card-movie-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=bookmark.movie.poster_url%>)">
+          </div>
+          <div class="p-3">
+            <p><strong><%= bookmark.movie.title %></strong> • <%= bookmark.movie.rating %><i class="fa-solid fa-star text-warning"></i></p>
+            <p class="text-small-grey"><%= bookmark.movie.overview %></p>
+          </div>
+          <div class="card-movie-footer ps-3 pe-3 d-flex justify-content-between">
+            <p><i class="fa-solid fa-quote-left me-2"></i><%= bookmark.comment %></p>
+            <p class="text-small-grey">delete</p>
           </div>
        </div>
       <% end %>
