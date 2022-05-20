@@ -32,4 +32,10 @@
 .text-small-grey {
   color: rgb(100,100,100);
   font-size: 12px;
+
+  a {
+    text-decoration: none;
+    color: rgb(181, 21, 21);
+    font-weight: bold;
+  }
 }

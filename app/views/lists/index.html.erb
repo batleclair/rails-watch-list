@@ -17,7 +17,12 @@
   <div class="row">
     <% @lists.each do |list| %>
       <div class = "col-4">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(
+          <% if list.photo.key.nil? %>
+            'https://www.ionos.fr/digitalguide/fileadmin/DigitalGuide/Teaser/movie-maker-alternative.jpg'
+          <% else %>
+          <%=cl_image_path list.photo.key%>
+          <% end %>)">
           <%= link_to list.name, list_path(list) %>
         </div>
       </div>
